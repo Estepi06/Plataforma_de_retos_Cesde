@@ -1,0 +1,1101 @@
+/* ==========================================================
+   ESTILOS GLOBALES - CESDE (PALETA OFICIAL ROSA / MAGENTA)
+   ========================================================== */
+
+:root {
+  /* Identidad CESDE */
+  --cesde-pink: #d81e5b;         /* Rosa / Magenta institucional CESDE */
+  --cesde-pink-hover: #b8144c;   /* Rosa oscuro al pasar el mouse */
+  --cesde-pink-light: #fdf2f8;   /* Fondo rosa pastel muy suave */
+  --cesde-pink-soft: #fce7f3;    /* Rosa pastel para bordes y chips */
+  --cesde-cyan: #0284c7;         /* Azul complementario (acento institucional) */
+  --cesde-cyan-light: #e0f2fe;   /* Azul suave */
+  --dark-header: #111827;        /* Negro carbón barra superior */
+  --dark-text: #18181b;          /* Texto principal */
+  --muted-text: #6b7280;         /* Texto secundario / gris */
+  --border-light: #e5e7eb;       /* Bordes */
+  --bg-body: #fafafa;            /* Fondo de pantalla */
+  --bg-card: #ffffff;            /* Fondo de tarjetas */
+
+  --radius-pill: 9999px;
+  --radius-card: 14px;
+  --radius-input: 8px;
+
+  --shadow-card: 0 4px 15px -2px rgba(0, 0, 0, 0.05), 0 2px 6px -2px rgba(0, 0, 0, 0.03);
+  --shadow-hover: 0 10px 25px -3px rgba(216, 30, 91, 0.15);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--bg-body);
+  color: var(--dark-text);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-layout {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.navbar {
+  background-color: #ffffff;
+  border-bottom: 1px solid var(--border-light);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.85rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+}
+
+.cesde-logo-brand {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--cesde-pink);
+  letter-spacing: -1px;
+}
+
+.logo-separator {
+  color: var(--border-light);
+  font-size: 1.2rem;
+}
+
+.logo-subtext {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--dark-text);
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.navbar-user-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.rol-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-pill);
+}
+
+.rol-empresa {
+  background-color: var(--cesde-pink-light);
+  color: var(--cesde-pink);
+  border: 1px solid var(--cesde-pink-soft);
+}
+
+.rol-estudiante {
+  background-color: var(--cesde-cyan-light);
+  color: var(--cesde-cyan);
+  border: 1px solid #bae6fd;
+}
+
+.navbar-user-name {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--dark-text);
+}
+
+.btn-logout {
+  background: none;
+  border: 1px solid var(--border-light);
+  padding: 0.45rem 0.9rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--muted-text);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-logout:hover {
+  background-color: #fee2e2;
+  color: #dc2626;
+  border-color: #fca5a5;
+}
+
+.navbar-auth-links {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.btn-nav-link {
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--dark-text);
+  padding: 0.45rem 0.9rem;
+  border-radius: var(--radius-pill);
+  transition: color 0.2s;
+}
+
+.btn-nav-link:hover {
+  color: var(--cesde-pink);
+}
+
+.btn-nav-primary {
+  text-decoration: none;
+  background-color: var(--cesde-pink);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 0.5rem 1.3rem;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 3px 10px rgba(216, 30, 91, 0.25);
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn-nav-primary:hover {
+  background-color: var(--cesde-pink-hover);
+  transform: translateY(-1px);
+}
+
+/* ==========================================================
+   PÁGINAS DE AUTENTICACIÓN (LOGIN Y REGISTRO CESDE)
+   ========================================================== */
+
+.auth-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem 1rem;
+  background: radial-gradient(circle at 50% 10%, #fdf2f8 0%, #fafafa 80%);
+}
+
+.auth-card {
+  background: var(--bg-card);
+  width: 100%;
+  max-width: 470px;
+  border-radius: var(--radius-card);
+  padding: 2.3rem;
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--border-light);
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: 1.8rem;
+}
+
+.auth-badge {
+  display: inline-block;
+  background-color: var(--cesde-pink-light);
+  color: var(--cesde-pink);
+  font-weight: 800;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.8rem;
+  border-radius: var(--radius-pill);
+  margin-bottom: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  border: 1px solid var(--cesde-pink-soft);
+}
+
+.auth-header h2 {
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: var(--dark-text);
+  margin-bottom: 0.3rem;
+}
+
+.auth-header p {
+  color: var(--muted-text);
+  font-size: 0.9rem;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--dark-text);
+}
+
+.form-group input {
+  padding: 0.7rem 0.9rem;
+  border: 1.5px solid var(--border-light);
+  border-radius: var(--radius-input);
+  font-size: 0.95rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+  background-color: #ffffff;
+}
+
+.form-group input:focus {
+  border-color: var(--cesde-pink);
+  box-shadow: 0 0 0 3px rgba(216, 30, 91, 0.15);
+}
+
+/* Selector de Roles CESDE */
+.role-selector {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.7rem;
+}
+
+.role-option {
+  border: 1.5px solid var(--border-light);
+  border-radius: var(--radius-input);
+  padding: 0.7rem 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 0.85rem;
+  transition: all 0.2s;
+  background-color: #fafafa;
+}
+
+.role-option input[type="radio"] {
+  display: none;
+}
+
+.role-option.active {
+  border-color: var(--cesde-pink);
+  background-color: var(--cesde-pink-light);
+  color: var(--cesde-pink);
+}
+
+.btn-primary {
+  margin-top: 0.6rem;
+  background-color: var(--cesde-pink);
+  color: #ffffff;
+  border: none;
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(216, 30, 91, 0.25);
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn-primary:hover {
+  background-color: var(--cesde-pink-hover);
+  transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  transform: scale(0.99);
+}
+
+.alert-error {
+  background-color: #fee2e2;
+  border: 1px solid #fca5a5;
+  color: #b91c1c;
+  padding: 0.65rem 0.9rem;
+  border-radius: var(--radius-input);
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+/* Caja de Acceso Rápido para Demostraciones */
+.demo-box {
+  margin-top: 1.5rem;
+  padding-top: 1.2rem;
+  border-top: 1px dashed var(--border-light);
+  text-align: center;
+}
+
+.demo-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--muted-text);
+  margin-bottom: 0.6rem;
+}
+
+.demo-buttons {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.btn-demo-empresa, .btn-demo-estudiante {
+  flex: 1;
+  padding: 0.5rem 0.6rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.2s;
+}
+
+.btn-demo-empresa {
+  background-color: var(--cesde-pink-light);
+  color: var(--cesde-pink);
+  border-color: var(--cesde-pink-soft);
+}
+
+.btn-demo-empresa:hover {
+  background-color: #fbcfe8;
+}
+
+.btn-demo-estudiante {
+  background-color: var(--cesde-cyan-light);
+  color: var(--cesde-cyan);
+  border-color: #bae6fd;
+}
+
+.btn-demo-estudiante:hover {
+  background-color: #bae6fd;
+}
+
+.auth-footer {
+  margin-top: 1.3rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--muted-text);
+}
+
+.auth-link {
+  color: var(--cesde-pink);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.auth-link:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================================
+   DASHBOARDS CESDE
+   ========================================================== */
+
+.dashboard-container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.dashboard-banner {
+  border-radius: var(--radius-card);
+  padding: 2.2rem;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--shadow-card);
+}
+
+/* Banner Empresa: Gradiente Rosado CESDE */
+.empresa-banner {
+  background: linear-gradient(135deg, #d81e5b 0%, #831843 100%);
+}
+
+/* Banner Estudiante: Gradiente Cyan / Dark CESDE */
+.estudiante-banner {
+  background: linear-gradient(135deg, #0369a1 0%, #0c4a6e 100%);
+}
+
+.banner-tag {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.78rem;
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+  letter-spacing: 0.5px;
+}
+
+.dashboard-banner h1 {
+  font-size: 1.85rem;
+  font-weight: 800;
+  margin-bottom: 0.3rem;
+}
+
+.dashboard-banner p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.95rem;
+}
+
+/* Tarjetas de Métricas (KPIs) */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.1rem;
+}
+
+.stat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-card);
+  padding: 1.3rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--cesde-pink-soft);
+}
+
+.stat-icon {
+  font-size: 1.8rem;
+  background-color: var(--cesde-pink-light);
+  color: var(--cesde-pink);
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-input);
+}
+
+.stat-label {
+  font-size: 0.82rem;
+  color: var(--muted-text);
+  font-weight: 600;
+}
+
+.stat-value {
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: var(--dark-text);
+  line-height: 1.2;
+}
+
+/* Secciones y Módulos */
+.modulos-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.section-title-box h2 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--dark-text);
+}
+
+.section-title-box p {
+  font-size: 0.9rem;
+  color: var(--muted-text);
+}
+
+.modulos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Tarjetas Modulares para los Compañeros */
+.modulo-card {
+  background: var(--bg-card);
+  border: 2px dashed #cbd5e1;
+  border-radius: var(--radius-card);
+  padding: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: all 0.2s;
+}
+
+.modulo-card:hover {
+  border-color: var(--cesde-pink);
+  background-color: #fffafc;
+}
+
+.modulo-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.modulo-tag {
+  display: inline-block;
+  background-color: var(--cesde-pink-light);
+  color: var(--cesde-pink);
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-pill);
+  margin-bottom: 0.35rem;
+  text-transform: uppercase;
+}
+
+.modulo-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--dark-text);
+}
+
+.modulo-encargado {
+  background-color: #fef3c7;
+  color: #92400e;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
+}
+
+.modulo-description {
+  font-size: 0.88rem;
+  color: var(--muted-text);
+  line-height: 1.45;
+}
+
+.modulo-content {
+  margin-top: auto;
+}
+
+.modulo-empty-state {
+  background-color: #f8fafc;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-input);
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.82rem;
+  color: var(--muted-text);
+}
+
+.empty-icon {
+  font-size: 1.6rem;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+/* Vista previa de retos */
+.demo-table-preview, .demo-cards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.demo-reto-item {
+  background-color: #ffffff;
+  border: 1px solid var(--border-light);
+  padding: 0.85rem;
+  border-radius: var(--radius-input);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.88rem;
+}
+
+.badge-demo {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  margin-left: 0.45rem;
+}
+
+.cat-tec { background: #e0f2fe; color: #0369a1; }
+.cat-fin { background: #fef3c7; color: #b45309; }
+.cat-salud { background: #dcfce7; color: #15803d; }
+
+.status-pill {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-pill);
+}
+
+.status-open {
+  background: var(--cesde-pink-light);
+  color: var(--cesde-pink);
+  border: 1px solid var(--cesde-pink-soft);
+}
+
+.demo-student-card {
+  background-color: #ffffff;
+  border: 1px solid var(--border-light);
+  padding: 1rem;
+  border-radius: var(--radius-input);
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.demo-student-card h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.reto-short-desc {
+  font-size: 0.82rem;
+  color: var(--muted-text);
+}
+
+.card-top, .card-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.empresa-pill {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--dark-text);
+}
+
+.btn-action-small {
+  background-color: var(--cesde-pink);
+  color: #ffffff;
+  border: none;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-action-small:hover {
+  background-color: var(--cesde-pink-hover);
+}
+
+/* ==========================================================
+   RESPONSIVE DESIGN
+   ========================================================== */
+
+@media (max-width: 640px) {
+  .dashboard-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.5rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .modulos-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .auth-card {
+    padding: 1.5rem;
+  }
+}
+
+/* ==========================================================
+   ESTILOS: MÓDULO MI EMPRESA (TABLA EMPRESA)
+   ========================================================== */
+
+.empresa-profile-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-card);
+  padding: 1.8rem;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+}
+
+.profile-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.profile-title {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--dark-text);
+}
+
+.profile-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.badge-empresa-activa {
+  background-color: #dcfce7;
+  color: #15803d;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.3rem 0.8rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid #bbf7d0;
+}
+
+.text-status-activa {
+  color: #15803d;
+}
+
+.btn-edit-perfil {
+  background-color: var(--cesde-pink-light);
+  color: var(--cesde-pink);
+  border: 1px solid var(--cesde-pink-soft);
+  padding: 0.45rem 0.9rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-edit-perfil:hover {
+  background-color: #fbcfe8;
+}
+
+.alert-success {
+  background-color: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  color: #065f46;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-input);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.perfil-datos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.2rem;
+  background-color: #f8fafc;
+  padding: 1.4rem;
+  border-radius: var(--radius-input);
+  border: 1px solid var(--border-light);
+}
+
+.dato-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.dato-label {
+  font-size: 0.78rem;
+  color: var(--muted-text);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.dato-valor {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--dark-text);
+}
+
+.sector-badge {
+  display: inline-block;
+  background-color: var(--cesde-pink-light);
+  color: var(--cesde-pink);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.82rem;
+  width: fit-content;
+}
+
+.text-cesde-bold {
+  color: var(--cesde-pink);
+  font-weight: 700;
+}
+
+/* Formulario de Edición Perfil */
+.form-perfil-empresa {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+  background-color: #f8fafc;
+  padding: 1.4rem;
+  border-radius: var(--radius-input);
+  border: 1px solid var(--border-light);
+}
+
+.form-grid-empresa {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.1rem;
+}
+
+.select-sector {
+  padding: 0.7rem 0.9rem;
+  border: 1.5px solid var(--border-light);
+  border-radius: var(--radius-input);
+  font-size: 0.92rem;
+  background-color: #ffffff;
+  outline: none;
+}
+
+.select-sector:focus {
+  border-color: var(--cesde-pink);
+}
+
+.form-buttons-perfil {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.btn-guardar-perfil {
+  background-color: var(--cesde-pink);
+  color: #ffffff;
+  border: none;
+  padding: 0.65rem 1.4rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-guardar-perfil:hover {
+  background-color: var(--cesde-pink-hover);
+}
+
+.btn-cancelar-perfil {
+  background-color: transparent;
+  color: var(--muted-text);
+  border: 1px solid var(--border-light);
+  padding: 0.65rem 1.2rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-cancelar-perfil:hover {
+  background-color: #e2e8f0;
+}
+
+/* ==========================================================
+   ESTILOS: DIRECTORIO DE EMPRESAS PARA ESTUDIANTES
+   ========================================================== */
+
+.directorio-empresas-modulo {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.directorio-filtros-bar {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.buscador-input-box {
+  flex: 1;
+  min-width: 250px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: 0.9rem;
+  font-size: 0.95rem;
+}
+
+.input-buscar-empresa {
+  width: 100%;
+  padding: 0.7rem 1rem 0.7rem 2.4rem;
+  border: 1.5px solid var(--border-light);
+  border-radius: var(--radius-pill);
+  font-size: 0.92rem;
+  outline: none;
+  background-color: #ffffff;
+}
+
+.input-buscar-empresa:focus {
+  border-color: var(--cesde-pink);
+  box-shadow: 0 0 0 3px rgba(216, 30, 91, 0.12);
+}
+
+.select-filtro-sector {
+  padding: 0.7rem 1.2rem;
+  border: 1.5px solid var(--border-light);
+  border-radius: var(--radius-pill);
+  font-size: 0.9rem;
+  background-color: #ffffff;
+  outline: none;
+  font-weight: 600;
+  color: var(--dark-text);
+  cursor: pointer;
+}
+
+.select-filtro-sector:focus {
+  border-color: var(--cesde-pink);
+}
+
+.alert-info-filtro {
+  background-color: #eff6ff;
+  border: 1px solid #bfdbfe;
+  color: #1e40af;
+  padding: 0.65rem 1rem;
+  border-radius: var(--radius-input);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.empresas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 1.2rem;
+}
+
+.empresa-card-estudiante {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-card);
+  padding: 1.4rem;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.empresa-card-estudiante:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--cesde-pink-soft);
+}
+
+.card-empresa-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.badge-sector-tag {
+  display: inline-block;
+  background-color: var(--cesde-pink-light);
+  color: var(--cesde-pink);
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 0.15rem 0.55rem;
+  border-radius: var(--radius-pill);
+  margin-bottom: 0.35rem;
+}
+
+.nombre-empresa {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--dark-text);
+}
+
+.badge-retos-count {
+  background-color: #fce7f3;
+  color: var(--cesde-pink);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
+}
+
+.empresa-card-detalles {
+  font-size: 0.82rem;
+  color: var(--muted-text);
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  background-color: #f8fafc;
+  padding: 0.75rem;
+  border-radius: var(--radius-input);
+}
+
+.empresa-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 0.5rem;
+}
+
+.convenio-badge {
+  font-size: 0.75rem;
+  color: #15803d;
+  font-weight: 700;
+}
+
+.btn-ver-retos {
+  background-color: var(--cesde-pink);
+  color: #ffffff;
+  border: none;
+  padding: 0.4rem 0.95rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-ver-retos:hover {
+  background-color: var(--cesde-pink-hover);
+}
+
+.no-empresas-found {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 2.5rem;
+  background-color: #ffffff;
+  border: 1px dashed var(--border-light);
+  border-radius: var(--radius-card);
+  color: var(--muted-text);
+}
