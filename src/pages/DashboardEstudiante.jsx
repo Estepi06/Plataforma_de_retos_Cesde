@@ -3,6 +3,7 @@ import { useAuth } from '../context/AuthContext';
 import PlaceholderModulo from '../components/PlaceholderModulo';
 import DirectorioEmpresasEstudiante from '../components/DirectorioEmpresasEstudiante';
 import FiltroCategorias from '../components/FiltroCategorias';
+import { MisRetosInscritos } from '../components/ModuloRegistro';
 
 export const DashboardEstudiante = () => {
   const { usuario } = useAuth();
@@ -122,9 +123,10 @@ export const DashboardEstudiante = () => {
           <PlaceholderModulo
             titulo="Mis Retos Inscritos"
             tablaAsignada="Registro"
-            encargado="Integrante de la Tabla REGISTRO"
             descripcion="Consulta los retos en los que ya te postulaste, fecha de registro y confirmación por parte de la empresa."
-          />
+          >
+            <MisRetosInscritos />
+          </PlaceholderModulo>
         </div>
       </section>
     </div>

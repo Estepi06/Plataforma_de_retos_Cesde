@@ -3,6 +3,7 @@ import { useAuth } from '../context/AuthContext';
 import PlaceholderModulo from '../components/PlaceholderModulo';
 import ModuloMiEmpresa from '../components/ModuloMiEmpresa';
 import ModuloCategorias from '../components/ModuloCategorias';
+import { PostulacionesEmpresa } from '../components/ModuloRegistro';
 
 export const DashboardEmpresa = () => {
   const { usuario } = useAuth();
@@ -104,9 +105,10 @@ export const DashboardEmpresa = () => {
           <PlaceholderModulo
             titulo="Postulaciones de Participantes"
             tablaAsignada="Registro"
-            encargado="Integrante de la Tabla REGISTRO"
             descripcion="Listado y control de qué estudiantes se han postulado a cada reto, fechas de inscripción y estado de aceptación."
-          />
+          >
+            <PostulacionesEmpresa />
+          </PlaceholderModulo>
         </div>
       </section>
     </div>
