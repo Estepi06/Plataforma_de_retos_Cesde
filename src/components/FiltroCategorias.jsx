@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { CATEGORIAS, etiqueta } from './categoriasData';
 
-export const FiltroCategorias = ({ onChange }) => {
-  const [categoria, setCategoria] = useState('');
+export const FiltroCategorias = ({ onChange, valor }) => {
+  const [categoriaInterna, setCategoriaInterna] = useState('');
+  const categoria = valor !== undefined && valor !== null ? valor : categoriaInterna;
 
   const handleCategoria = (e) => {
-    setCategoria(e.target.value);
+    const val = e.target.value;
+    setCategoriaInterna(val);
     // Avisa al módulo de Retos: null = todas, o el nombre (ej. "Tecnologia")
-    if (onChange) onChange(e.target.value || null);
+    if (onChange) onChange(val || null);
   };
 
   return (
