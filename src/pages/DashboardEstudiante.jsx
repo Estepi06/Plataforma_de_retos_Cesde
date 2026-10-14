@@ -2,6 +2,7 @@ import React from 'react';
 import { useAuth } from '../context/AuthContext';
 import PlaceholderModulo from '../components/PlaceholderModulo';
 import DirectorioEmpresasEstudiante from '../components/DirectorioEmpresasEstudiante';
+import FiltroCategorias from '../components/FiltroCategorias';
 
 export const DashboardEstudiante = () => {
   const { usuario } = useAuth();
@@ -61,6 +62,17 @@ export const DashboardEstudiante = () => {
         </div>
         <DirectorioEmpresasEstudiante />
       </section>
+
+     {/* Filtro por categoría (Tabla Categoria) */}
+    <section className="modulos-section">
+   <div className="section-title-box">
+    <span className="modulo-tag">Tabla: Categoria · Filtros</span>
+    <h2>Filtrar retos por categoría</h2>
+    <p>Selecciona un área temática para explorar los retos relacionados.</p>
+   </div>
+   <FiltroCategorias />
+  </section>
+
 
       {/* Espacios Modulares para los compañeros */}
       <section className="modulos-section">

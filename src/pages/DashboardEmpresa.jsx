@@ -2,6 +2,7 @@ import React from 'react';
 import { useAuth } from '../context/AuthContext';
 import PlaceholderModulo from '../components/PlaceholderModulo';
 import ModuloMiEmpresa from '../components/ModuloMiEmpresa';
+import ModuloCategorias from '../components/ModuloCategorias';
 
 export const DashboardEmpresa = () => {
   const { usuario } = useAuth();
@@ -57,6 +58,13 @@ export const DashboardEmpresa = () => {
         <ModuloMiEmpresa />
       </section>
 
+         {/* Módulo Categoria: administración de áreas temáticas */}
+   <section className="modulos-section">
+     <div className="empresa-profile-card">
+       <ModuloCategorias />
+     </div>
+   </section>
+
       {/* Espacios Modulares para los compañeros de equipo */}
       <section className="modulos-section">
         <div className="section-title-box">
@@ -90,13 +98,7 @@ export const DashboardEmpresa = () => {
             </div>
           </PlaceholderModulo>
 
-          {/* Módulo 2: Tabla Categoria */}
-          <PlaceholderModulo
-            titulo="Gestión de Categorías"
-            tablaAsignada="Categoria"
-            encargado="Integrante de la Tabla CATEGORIA"
-            descripcion="Permite registrar y administrar las áreas temáticas de los retos (Tecnología, Finanzas, Salud, Logística, Marketing)."
-          />
+  
 
           {/* Módulo 3: Tabla Registro */}
           <PlaceholderModulo
