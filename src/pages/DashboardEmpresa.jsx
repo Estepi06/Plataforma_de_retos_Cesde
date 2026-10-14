@@ -4,6 +4,7 @@ import { useRetos } from '../context/RetosContext';
 import PlaceholderModulo from '../components/PlaceholderModulo';
 import ModuloMiEmpresa from '../components/ModuloMiEmpresa';
 import ModuloCategorias from '../components/ModuloCategorias';
+import { PostulacionesEmpresa } from '../components/ModuloRegistro';
 import ModuloRetosEmpresa from '../components/ModuloRetosEmpresa';
 
 export const DashboardEmpresa = () => {
@@ -92,9 +93,10 @@ export const DashboardEmpresa = () => {
           <PlaceholderModulo
             titulo="Postulaciones de Participantes"
             tablaAsignada="Registro"
-            encargado="Integrante de la Tabla REGISTRO"
             descripcion="Listado y control de qué estudiantes se han postulado a cada reto, fechas de inscripción y estado de aceptación."
-          />
+          >
+            <PostulacionesEmpresa />
+          </PlaceholderModulo>
         </div>
       </section>
     </div>

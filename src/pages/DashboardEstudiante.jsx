@@ -4,6 +4,7 @@ import { useRetos } from '../context/RetosContext';
 import PlaceholderModulo from '../components/PlaceholderModulo';
 import DirectorioEmpresasEstudiante from '../components/DirectorioEmpresasEstudiante';
 import FiltroCategorias from '../components/FiltroCategorias';
+import { MisRetosInscritos } from '../components/ModuloRegistro';
 import CatalogoRetosEstudiante from '../components/CatalogoRetosEstudiante';
 
 export const DashboardEstudiante = () => {
@@ -108,28 +109,9 @@ export const DashboardEstudiante = () => {
           <PlaceholderModulo
             titulo="Mis Retos Inscritos (Control de Postulaciones)"
             tablaAsignada="Registro"
-            encargado="Integrante de la Tabla REGISTRO"
             descripcion="Consulta los retos en los que ya te postulaste, fecha de registro y confirmación por parte de la empresa."
           >
-            {misPostulaciones.length > 0 ? (
-              <div className="demo-cards-list">
-                {misPostulaciones.map((post) => (
-                  <div key={post.id} className="demo-student-card">
-                    <div className="card-top">
-                      <span className="empresa-pill">🏢 {post.reto?.empresa}</span>
-                      <span className="badge-demo cat-tec">{post.reto?.categoria}</span>
-                    </div>
-                    <h4>{post.reto?.nombre}</h4>
-                    <p className="reto-short-desc">Fecha de registro: {post.fecha}</p>
-                    <div className="card-bottom">
-                      <span className="status-pill status-open">
-                        {post.estado === 'ACEPTADA' ? '✓ Aceptada' : '⏳ En evaluación'}
-                      </span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            ) : null}
+            <MisRetosInscritos />
           </PlaceholderModulo>
         </div>
       </section>
