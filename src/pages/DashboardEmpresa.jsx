@@ -1,11 +1,21 @@
 import React from 'react';
 import { useAuth } from '../context/AuthContext';
+import { useRetos } from '../context/RetosContext';
 import PlaceholderModulo from '../components/PlaceholderModulo';
 import ModuloMiEmpresa from '../components/ModuloMiEmpresa';
 import ModuloCategorias from '../components/ModuloCategorias';
+import ModuloRetosEmpresa from '../components/ModuloRetosEmpresa';
 
 export const DashboardEmpresa = () => {
   const { usuario } = useAuth();
+  const { obtenerRetosEmpresa } = useRetos();
+
+  const nombreEmpresa = usuario?.nombre || 'Tech Solutions S.A.S.';
+  const misRetos = obtenerRetosEmpresa(nombreEmpresa);
+
+  const totalRetos = misRetos.length;
+  const categoriasVinculadas = new Set(misRetos.map((r) => r.categoria)).size;
+  const totalPostulaciones = misRetos.reduce((acc, r) => acc + (r.postulados || 0), 0);
 
   return (
     <div className="dashboard-container">
@@ -24,7 +34,7 @@ export const DashboardEmpresa = () => {
           <span className="stat-icon">🎯</span>
           <div>
             <p className="stat-label">Mis Retos Publicados</p>
-            <h3 className="stat-value">5</h3>
+            <h3 className="stat-value">{totalRetos}</h3>
           </div>
         </div>
 
@@ -32,7 +42,7 @@ export const DashboardEmpresa = () => {
           <span className="stat-icon">🏷️</span>
           <div>
             <p className="stat-label">Categorías Vinculadas</p>
-            <h3 className="stat-value">4</h3>
+            <h3 className="stat-value">{categoriasVinculadas}</h3>
           </div>
         </div>
 
@@ -40,7 +50,7 @@ export const DashboardEmpresa = () => {
           <span className="stat-icon">👥</span>
           <div>
             <p className="stat-label">Postulaciones Recibidas</p>
-            <h3 className="stat-value">18</h3>
+            <h3 className="stat-value">{totalPostulaciones}</h3>
           </div>
         </div>
 
@@ -58,12 +68,17 @@ export const DashboardEmpresa = () => {
         <ModuloMiEmpresa />
       </section>
 
-         {/* Módulo Categoria: administración de áreas temáticas */}
-   <section className="modulos-section">
-     <div className="empresa-profile-card">
-       <ModuloCategorias />
-     </div>
-   </section>
+      {/* Módulo Categoria: administración de áreas temáticas */}
+      <section className="modulos-section">
+        <div className="empresa-profile-card">
+          <ModuloCategorias />
+        </div>
+      </section>
+
+      {/* Módulo Reto: Publicación y Gestión de Retos (TABLA RETO) */}
+      <section className="modulos-section">
+        <ModuloRetosEmpresa />
+      </section>
 
       {/* Espacios Modulares para los compañeros de equipo */}
       <section className="modulos-section">
@@ -73,34 +88,7 @@ export const DashboardEmpresa = () => {
         </div>
 
         <div className="modulos-grid">
-          {/* Módulo 1: Tabla Reto */}
-          <PlaceholderModulo
-            titulo="Gestión de Retos Empresariales"
-            tablaAsignada="Reto"
-            encargado="Integrante de la Tabla RETO"
-            descripcion="Permite publicar nuevos retos empresariales, asociar su categoría, definir requisitos y cambiar su estado."
-          >
-            <div className="demo-table-preview">
-              <div className="demo-reto-item">
-                <div>
-                  <strong>Optimización de Logística y Rutas</strong>
-                  <span className="badge-demo cat-tec">Tecnología</span>
-                </div>
-                <span className="status-pill status-open">Abierto</span>
-              </div>
-              <div className="demo-reto-item">
-                <div>
-                  <strong>Dashboard Financiero para Microempresas</strong>
-                  <span className="badge-demo cat-fin">Finanzas</span>
-                </div>
-                <span className="status-pill status-open">Abierto</span>
-              </div>
-            </div>
-          </PlaceholderModulo>
-
-  
-
-          {/* Módulo 3: Tabla Registro */}
+          {/* Módulo Tabla Registro */}
           <PlaceholderModulo
             titulo="Postulaciones de Participantes"
             tablaAsignada="Registro"

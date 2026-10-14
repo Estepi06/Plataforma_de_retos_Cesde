@@ -1099,3 +1099,657 @@ body {
   border-radius: var(--radius-card);
   color: var(--muted-text);
 }
+
+/* ==========================================================
+   ESTILOS: TABLA RETO (EMPRESA Y ESTUDIANTE)
+   ========================================================== */
+
+.btn-primary-action {
+  background-color: var(--cesde-pink);
+  color: #ffffff;
+  border: none;
+  padding: 0.55rem 1.25rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(216, 30, 91, 0.25);
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.btn-primary-action:hover {
+  background-color: var(--cesde-pink-hover);
+  transform: translateY(-1px);
+}
+
+/* Formulario de Retos */
+.form-reto-container {
+  background: #ffffff;
+  border: 1.5px solid var(--cesde-pink-soft);
+  border-radius: var(--radius-card);
+  padding: 1.6rem;
+  box-shadow: 0 4px 18px rgba(216, 30, 91, 0.08);
+  margin-bottom: 1.2rem;
+  animation: fadeInReto 0.25s ease-out;
+}
+
+@keyframes fadeInReto {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.form-reto-header {
+  margin-bottom: 1.2rem;
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: 0.75rem;
+}
+
+.form-reto-header h4 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--dark-text);
+}
+
+.form-reto-header p {
+  font-size: 0.85rem;
+  color: var(--muted-text);
+}
+
+.grid-full-width {
+  grid-column: 1 / -1;
+}
+
+.field-hint {
+  font-size: 0.74rem;
+  color: var(--muted-text);
+  margin-top: 0.15rem;
+}
+
+.textarea-reto {
+  width: 100%;
+  padding: 0.75rem 0.9rem;
+  border: 1.5px solid var(--border-light);
+  border-radius: var(--radius-input);
+  font-family: inherit;
+  font-size: 0.92rem;
+  resize: vertical;
+  outline: none;
+  background-color: #ffffff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.textarea-reto:focus {
+  border-color: var(--cesde-pink);
+  box-shadow: 0 0 0 3px rgba(216, 30, 91, 0.12);
+}
+
+/* Barra de Herramientas de Retos (Filtros por Estado) */
+.retos-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  padding: 0.8rem 1rem;
+  background-color: #f8fafc;
+  border-radius: var(--radius-input);
+  border: 1px solid var(--border-light);
+}
+
+.retos-counter-pill {
+  font-size: 0.84rem;
+  color: var(--dark-text);
+}
+
+.filtro-estados-chips {
+  display: flex;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+}
+
+.chip-estado {
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--muted-text);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.chip-estado:hover {
+  border-color: var(--cesde-pink);
+  color: var(--cesde-pink);
+}
+
+.chip-estado.chip-active {
+  background-color: var(--cesde-pink);
+  border-color: var(--cesde-pink);
+  color: #ffffff;
+  font-weight: 700;
+}
+
+/* Grilla de Retos en Dashboard Empresa */
+.retos-empresa-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.25rem;
+}
+
+.reto-card-empresa {
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-light);
+  border-radius: var(--radius-card);
+  padding: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.reto-card-empresa:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--cesde-pink-soft);
+}
+
+.reto-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.reto-badges-group {
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 0.4rem;
+}
+
+.categoria-badge {
+  background-color: var(--cesde-pink-light);
+  color: var(--cesde-pink);
+  font-size: 0.74rem;
+  font-weight: 800;
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--cesde-pink-soft);
+}
+
+.prioridad-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.15rem 0.55rem;
+  border-radius: var(--radius-pill);
+}
+
+.prioridad-alta { background-color: #fee2e2; color: #b91c1c; border: 1px solid #fca5a5; }
+.prioridad-media { background-color: #fef3c7; color: #92400e; border: 1px solid #fde68a; }
+.prioridad-baja { background-color: #ecfdf5; color: #047857; border: 1px solid #a7f3d0; }
+
+.reto-title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--dark-text);
+  line-height: 1.35;
+}
+
+.select-estado-mini {
+  padding: 0.3rem 0.6rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.74rem;
+  font-weight: 700;
+  cursor: pointer;
+  outline: none;
+  border: 1.5px solid transparent;
+}
+
+.estado-abierto { background: #dcfce7; color: #15803d; border-color: #bbf7d0; }
+.estado-en_progreso { background: #e0f2fe; color: #0369a1; border-color: #bae6fd; }
+.estado-completado { background: #f3e8ff; color: #6b21a8; border-color: #e9d5ff; }
+.estado-cerrado { background: #f1f5f9; color: #475569; border-color: #cbd5e1; }
+
+.reto-description {
+  font-size: 0.88rem;
+  color: var(--dark-text);
+  line-height: 1.45;
+}
+
+.reto-requisitos-box {
+  background-color: #f8fafc;
+  border-left: 3px solid var(--cesde-pink);
+  padding: 0.55rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  color: var(--muted-text);
+}
+
+.reto-meta-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.78rem;
+  color: var(--muted-text);
+  border-top: 1px solid var(--border-light);
+  padding-top: 0.65rem;
+  margin-top: auto;
+}
+
+.postulados-badge {
+  background-color: #eff6ff;
+  color: #1d4ed8;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-pill);
+  font-weight: 700;
+}
+
+.reto-card-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.btn-accion-reto {
+  flex: 1;
+  padding: 0.4rem 0.6rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: 1px solid transparent;
+}
+
+.btn-editar {
+  background-color: #f8fafc;
+  border-color: var(--border-light);
+  color: var(--dark-text);
+}
+
+.btn-editar:hover {
+  background-color: #e2e8f0;
+}
+
+.btn-eliminar {
+  background-color: #fff1f2;
+  border-color: #fecdd3;
+  color: #e11d48;
+}
+
+.btn-eliminar:hover {
+  background-color: #ffe4e6;
+  color: #be123c;
+}
+
+.no-retos-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 2.8rem 1.5rem;
+  background-color: #ffffff;
+  border: 2px dashed #cbd5e1;
+  border-radius: var(--radius-card);
+  color: var(--muted-text);
+}
+
+.no-retos-empty h4 {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--dark-text);
+  margin-top: 0.4rem;
+}
+
+/* ==========================================================
+   ESTILOS: CATÁLOGO DE RETOS PARA ESTUDIANTES
+   ========================================================== */
+
+.catalogo-retos-modulo {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+}
+
+.catalogo-tabs-bar {
+  display: flex;
+  gap: 0.6rem;
+  border-bottom: 2px solid var(--border-light);
+  padding-bottom: 0.4rem;
+}
+
+.tab-btn {
+  background: none;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--muted-text);
+  cursor: pointer;
+  border-radius: var(--radius-pill);
+  transition: all 0.2s;
+}
+
+.tab-btn:hover {
+  color: var(--cesde-pink);
+  background-color: var(--cesde-pink-light);
+}
+
+.tab-btn.tab-btn-active {
+  background-color: var(--cesde-pink);
+  color: #ffffff;
+  box-shadow: 0 3px 10px rgba(216, 30, 91, 0.25);
+}
+
+.alert-notificacion {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1.2rem;
+  border-radius: var(--radius-input);
+  font-size: 0.9rem;
+  font-weight: 600;
+  animation: fadeInReto 0.3s ease;
+}
+
+.alert-notif-success {
+  background-color: #ecfdf5;
+  border: 1.5px solid #a7f3d0;
+  color: #065f46;
+}
+
+.alert-notif-warn {
+  background-color: #fff7ed;
+  border: 1.5px solid #fed7aa;
+  color: #9a3412;
+}
+
+.alert-notif-info {
+  background-color: #eff6ff;
+  border: 1.5px solid #bfdbfe;
+  color: #1e40af;
+}
+
+.btn-cerrar-alerta {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  font-weight: 800;
+  cursor: pointer;
+  color: inherit;
+  opacity: 0.7;
+}
+
+.btn-cerrar-alerta:hover {
+  opacity: 1;
+}
+
+.catalogo-filtros-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.btn-limpiar-busqueda {
+  position: absolute;
+  right: 0.9rem;
+  background: none;
+  border: none;
+  font-size: 0.85rem;
+  color: var(--muted-text);
+  cursor: pointer;
+}
+
+.chips-categorias-scroll {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.4rem;
+  scrollbar-width: thin;
+}
+
+.chip-categoria-btn {
+  white-space: nowrap;
+  background: #ffffff;
+  border: 1.5px solid var(--border-light);
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--dark-text);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.chip-categoria-btn:hover {
+  border-color: var(--cesde-pink);
+  color: var(--cesde-pink);
+}
+
+.chip-categoria-btn.chip-cat-active {
+  background-color: var(--cesde-pink-light);
+  border-color: var(--cesde-pink);
+  color: var(--cesde-pink);
+  box-shadow: 0 2px 8px rgba(216, 30, 91, 0.15);
+}
+
+.retos-catalogo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.3rem;
+}
+
+.reto-card-estudiante {
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-light);
+  border-radius: var(--radius-card);
+  padding: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.reto-card-estudiante:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--cesde-pink-soft);
+}
+
+.card-ya-postulado {
+  border-color: #86efac;
+  background: linear-gradient(180deg, #f0fdf4 0%, #ffffff 25%);
+}
+
+.reto-card-est-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.categoria-badge-estudiante {
+  background-color: var(--cesde-cyan-light);
+  color: var(--cesde-cyan);
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid #bae6fd;
+}
+
+.reto-card-est-title {
+  font-size: 1.12rem;
+  font-weight: 800;
+  color: var(--dark-text);
+  line-height: 1.35;
+}
+
+.reto-card-est-desc {
+  font-size: 0.86rem;
+  color: #374151;
+  line-height: 1.45;
+}
+
+.reto-requisitos-pill {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-input);
+  font-size: 0.78rem;
+  color: var(--muted-text);
+}
+
+.reto-card-est-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.78rem;
+  color: var(--muted-text);
+  border-top: 1px solid var(--border-light);
+  padding-top: 0.65rem;
+  margin-top: auto;
+}
+
+.meta-postulados {
+  font-weight: 700;
+  color: var(--cesde-pink);
+}
+
+.reto-card-est-footer {
+  padding-top: 0.35rem;
+}
+
+.btn-postularme-cta {
+  width: 100%;
+  background-color: var(--cesde-pink);
+  color: #ffffff;
+  border: none;
+  padding: 0.65rem 1rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.88rem;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(216, 30, 91, 0.25);
+  transition: all 0.2s;
+  text-align: center;
+}
+
+.btn-postularme-cta:hover {
+  background-color: var(--cesde-pink-hover);
+  transform: translateY(-1px);
+}
+
+.postulado-acciones {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.badge-postulado-ok {
+  background-color: #dcfce7;
+  color: #15803d;
+  font-size: 0.78rem;
+  font-weight: 800;
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid #86efac;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.btn-cancelar-postulacion {
+  background: none;
+  border: 1px solid #fca5a5;
+  color: #dc2626;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.72rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-cancelar-postulacion:hover {
+  background-color: #fee2e2;
+}
+
+.no-retos-catalogo {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 3rem 1.5rem;
+  background-color: #ffffff;
+  border: 1px dashed var(--border-light);
+  border-radius: var(--radius-card);
+  color: var(--muted-text);
+}
+
+.no-retos-catalogo h4 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--dark-text);
+  margin-top: 0.5rem;
+}
+
+.no-retos-catalogo p {
+  font-size: 0.9rem;
+  margin-top: 0.3rem;
+  margin-bottom: 1rem;
+}
+
+.btn-reset-filtros {
+  background-color: var(--cesde-pink-light);
+  color: var(--cesde-pink);
+  border: 1px solid var(--cesde-pink-soft);
+  padding: 0.5rem 1.2rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-reset-filtros:hover {
+  background-color: #fbcfe8;
+}
+
+.postulacion-info-box {
+  background-color: #f8fafc;
+  padding: 0.75rem;
+  border-radius: var(--radius-input);
+  font-size: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  border: 1px solid var(--border-light);
+}
+
+.badge-estado-postulacion {
+  color: #15803d;
+  font-weight: 700;
+}
+
+.btn-cancelar-postulacion-full {
+  width: 100%;
+  background: none;
+  border: 1px solid #fca5a5;
+  color: #dc2626;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-cancelar-postulacion-full:hover {
+  background-color: #fee2e2;
+}
+

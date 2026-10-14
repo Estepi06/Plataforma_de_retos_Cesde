@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
+import { RetosProvider } from './context/RetosContext';
 import Navbar from './components/Navbar';
 import RutaPrivada from './components/RutaPrivada';
 
@@ -14,7 +15,8 @@ import DashboardEstudiante from './pages/DashboardEstudiante';
 function App() {
   return (
     <AuthProvider>
-      <BrowserRouter>
+      <RetosProvider>
+        <BrowserRouter>
         <div className="app-container">
           {/* Barra de navegación superior visible en toda la app */}
           <Navbar />
@@ -50,6 +52,7 @@ function App() {
           </main>
         </div>
       </BrowserRouter>
+      </RetosProvider>
     </AuthProvider>
   );
 }
