@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import {
   ESTADOS,
   COLOR_ESTADO,
-  MIS_REGISTROS_INICIALES,
   POSTULACIONES_INICIALES,
   formatearFecha,
 } from './registrosData';
 import { etiqueta } from './categoriasData';
+import { useAuth } from '../context/AuthContext';
+import { useRetos } from '../context/RetosContext';
 
 const PillEstado = ({ estado }) => (
   <span className="status-pill" style={COLOR_ESTADO[estado]}>
@@ -15,8 +16,17 @@ const PillEstado = ({ estado }) => (
 );
 
 // ---------- ESTUDIANTE: Mis Retos Inscritos ----------
+// Lee las postulaciones reales del RetosContext (las crea el botón "Postularme")
+const estadoDePostulacion = (estado) => {
+  if (estado === 'ACEPTADA') return 'ACEPTADO';
+  if (estado === 'RECHAZADA') return 'RECHAZADO';
+  return 'PENDIENTE';
+};
+
 export const MisRetosInscritos = () => {
-  const [registros] = useState(MIS_REGISTROS_INICIALES);
+  const { usuario } = useAuth();
+  const { obtenerPostulacionesEstudiante } = useRetos();
+  const registros = obtenerPostulacionesEstudiante(usuario?.id || 'demo-estudiante');
 
   if (registros.length === 0) {
     return (
@@ -29,18 +39,16 @@ export const MisRetosInscritos = () => {
 
   return (
     <div className="demo-cards-list">
-      {registros.map((r) => (
-        <div className="demo-student-card" key={r.id}>
+      {registros.map((post) => (
+        <div className="demo-student-card" key={post.id}>
           <div className="card-top">
-            <span className="empresa-pill">🏢 {r.empresa}</span>
-            <PillEstado estado={r.estado} />
+            <span className="empresa-pill">🏢 {post.reto?.empresa}</span>
+            <PillEstado estado={estadoDePostulacion(post.estado)} />
           </div>
-          <h4>{r.reto.titulo}</h4>
+          <h4>{post.reto?.nombre}</h4>
           <div className="card-bottom">
-            <span className="reto-short-desc">
-              Inscrito el {formatearFecha(r.fecha_inscripcion)}
-            </span>
-            <span className="badge-demo cat-tec">{etiqueta(r.reto.categoria)}</span>
+            <span className="reto-short-desc">Fecha de registro: {post.fecha}</span>
+            <span className="badge-demo cat-tec">{etiqueta(post.reto?.categoria)}</span>
           </div>
         </div>
       ))}

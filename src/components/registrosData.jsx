@@ -1,6 +1,6 @@
 // Datos de ejemplo para la tabla REGISTRO (aún no hay backend).
 // Columnas de registro: id, id_reto, id_estudiante, fecha_inscripcion, estado
-// Los campos reto/empresa/estudiante simulan el JOIN que hará el backend.
+// Los campos reto/estudiante simulan el JOIN que hará el backend.
 // Cuando exista la API, reemplazar estas listas por un fetch.
 
 export const ESTADOS = {
@@ -8,24 +8,6 @@ export const ESTADOS = {
   ACEPTADO: 'Aceptado',
   RECHAZADO: 'Rechazado',
 };
-
-// Retos en los que el estudiante ya se postuló
-export const MIS_REGISTROS_INICIALES = [
-  {
-    id: 'reg-1',
-    fecha_inscripcion: '2026-10-02',
-    estado: 'ACEPTADO',
-    reto: { titulo: 'Algoritmo de Detección de Fraude Transaccional', categoria: 'Tecnologia' },
-    empresa: 'Bancolombia Tech Innovation',
-  },
-  {
-    id: 'reg-2',
-    fecha_inscripcion: '2026-10-09',
-    estado: 'PENDIENTE',
-    reto: { titulo: 'Optimización de Agendamiento de Citas', categoria: 'Nutricion' },
-    empresa: 'Clínica Salud Integral S.A.',
-  },
-];
 
 // Estudiantes postulados a los retos de la empresa
 export const POSTULACIONES_INICIALES = [
